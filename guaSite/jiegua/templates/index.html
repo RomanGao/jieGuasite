@@ -2,22 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>六爻解卦</title>
+    <title>六爻定卦</title>
 </head>
 <body>
-<form action="{% url 'jiegua:detail'%}" method="post">
+<h3>使用说明</h3>
+<div>
+    <ul>
+        <li><p>1、准备三个相同的硬币</p></li>
+    <li><p>2、心里想着你觉得能不能做成事</p></li>
+    <li><p>3、开始掷硬币，掷完观察爻。 </p></li>
+    <li><p>&emsp; 3枚硬币有4中情况：</p></li>
+    <li><p>&emsp; a) 全正面 -->定为阳爻，并标记为动阳爻 </p></li>
+    <li><p>&emsp; b) 全阴面 -->定为阴爻，并标记为动阴爻 </p></li>
+    <li><p>&emsp; c) 两正一反 -->定为阴爻  </p></li>
+    <li><p>&emsp; d) 两反一正 -->定为阴爻  </p></li>
+    <li><p>4、掷六次，顺序记录，阳记为1，阴记为0，将动爻的次号单独记录，即可起卦</p></li>
+    <li><p>5、将用1或0表示的卦相和所有动爻的次号依次填入</p></li>
+    </ul>
+    <p>例如：摇出来的结果为：阳阳阴阴阳阴，则第一个输入卦相添：110010</p>
+    <p>如果第二次摇的为动阳，第四次为动阴，则第二个输入添：24</p>
+</div>
+
+
+<form action="{% url 'dinggua:detail'%}" method="post">
     {% csrf_token %}
     <fieldset>
         <legend>
-            <h1>六爻解卦</h1>
+            <h2>六爻定卦</h2>
         </legend>
-        <label >请输入卦(阳用1表示，阴用0表示)：</label><br>
+        <label >请输入卦相(阳用1表示，阴用0表示)：</label><br>
         <input type="text" name="guaNo" value=""><br>
-        <label>请输入动爻行：(从1至6)</label><br>
+        <br>
+        <label>请输入动爻所对应的所有投掷次号：(如没有动爻添0)</label><br>
         <input type="text" name="dongNo" value=""><br>
 
     </fieldset>
-    <input type="submit" value="解卦">
+    <input type="submit" value="定卦">
 </form>
 </body>
 </html>

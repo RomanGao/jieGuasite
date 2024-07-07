@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 
 #设置命名空间
-app_name ="jiegua"
+app_name ="dinggua"
 urlpatterns = [
     #该path()函数传递四个参数，其中两个是必需的： route和view，两个可选的：kwargs, 和name
 

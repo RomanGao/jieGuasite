@@ -1,0 +1,41 @@
+1.创建项目：
+django-admin startproject mysite
+2.启动项目：
+cd mysite
+python manage.py migrate
+python manage.py runserver
+3.创建一个应用程序
+python manage.py startapp polls
+
+
+migrate命令:可以为您运行迁移并自动管理您的数据库架构 ，
+
+$ python manage.py makemigrations polls
+#通过运行makemigrations，您告诉 Django 您已经对模型进行了一些更改（在本例中，您已经进行了新的更改）并且您希望将更改存储为迁移。
+
+让我
+检查项目中的任何问题，而无需进行迁移或接触数据库：
+python manage.py check
+
+进行模型更改的三步指南：
+    1、更改您的模型（在models.py）。
+    2、运行为这些更改创建迁移python manage.py makemigrations
+    3、运行以将这些更改应用到数据库。python manage.py migrate
+
+
+python manage.py shell：
+我们使用它而不是简单地输入“python”，
+因为manage.py 设置了DJANGO_SETTINGS_MODULE环境变量，它为 Django 提供文件的 Python 导入路径mysite/settings.py。
+进入shell后，可探索数据库kpi(https://docs.djangoproject.com/en/5.0/topics/db/queries/)
+
+我们需要创建一个可以登录管理站点的用户:
+python manage.py createsuperuser
+
+python manage.py runserver
+
+
+//在终端中输入查看端口号占用情况
+sudo lsof -i:8000
+
+//终端输入释放端口程序
+kill -9 pid（端口号）

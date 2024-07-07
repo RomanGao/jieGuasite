@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>六爻解卦</title>
+</head>
+<body>
+<form action="{% url 'jiegua:detail'%}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>
+            <h1>六爻解卦</h1>
+        </legend>
+        <label >请输入卦(阳用1表示，阴用0表示)：</label><br>
+        <input type="text" name="guaNo" value=""><br>
+        <label>请输入动爻行：(从1至6)</label><br>
+        <input type="text" name="dongNo" value=""><br>
+
+    </fieldset>
+    <input type="submit" value="解卦">
+</form>
+</body>
+</html>
